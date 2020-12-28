@@ -14,6 +14,12 @@ namespace Blog_project.Models
         {
         }
 
-        public DbSet<Post> Post { get; set; }
+        public DbSet<Post> Posts { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Post>().HasKey(c => c.id);
+            modelBuilder.Entity<Post>().ToTable("Posts");
+        }
     }
 }
