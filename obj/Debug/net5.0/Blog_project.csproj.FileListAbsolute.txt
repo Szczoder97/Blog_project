@@ -181,3 +181,4 @@ C:\Users\hp\source\repos\Blog_project\bin\Debug\net5.0\Microsoft.Extensions.Iden
 C:\Users\hp\source\repos\Blog_project\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\hp\source\repos\Blog_project\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\hp\source\repos\Blog_project\bin\Debug\net5.0\runtimes\linux-mips64\native\libe_sqlite3.so
+C:\Users\hp\source\repos\Blog_project\obj\Debug\net5.0\Blog_project.csprojAssemblyReference.cache
