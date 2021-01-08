@@ -1,0 +1,193 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit</title>
+</head>
+<!-- NAVBAR  -->
+<nav class="navbar has-shadow is-white">
+  <div class="navbar-brand">
+      <a class="navbar-item">
+          <img src="assets\logo_v1.png" alt="Logo strony" style="max-height: 76px" class="py-2 px-2">
+      </a>
+  </div>
+  <div class="navbar-start">
+      <a class="navbar-item">Home</a>
+      <div class="level-item ml-4">
+          <div class="field has-addons">
+            <p class="control">
+              <input class="input" type="text" placeholder="Find a post">
+            </p>
+            <p class="control">
+              <button class="button">
+                Search
+              </button>
+            </p>
+          </div>
+        </div>
+  </div>
+  <div class="navbar-menu" id="nav-links">
+      <div class="navbar-end">
+        <div class="has-text-centered">
+          <button class="button mt-5 mr-3" id="login">Login</button>
+        </div>  
+        <div class="has-text-centered">
+            <button class="button mt-5 mr-6" id="signup">Sign Up</button>
+        </div>
+      </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+    <div class="media-content">
+      <div class="field">
+        <h2 class="is-size-4">Title</h2>
+        <p class="field">
+          <textarea rows="1" class="textarea" placeholder="Title..."></textarea>
+        </p>
+
+        <h2 class="is-size-4">Subtitle</h2>
+        <p class="field">
+          <textarea rows="1" class="textarea" placeholder="Subtitle..."></textarea>
+        </p>
+
+        <h2 class="is-size-4">Content</h2>
+        <p class="field">
+          <textarea rows="10" class="textarea" placeholder="Content..."></textarea>
+        </p>
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <button class="button is-primary">Add Image</button>
+            </div>
+            <div class="level-item">
+              <button class="button is-primary">Submit</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ---------------- Modal ---------------- -->
+<section class="section">
+    <div class="modal">
+        <div class="modal-background"></div>
+            <div class="modal-content has-background-white py-5 px-5">
+                <div class="has-text-centered">
+                    <form>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input type="text" class="input" placeholder="">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input type="text" class="input" placeholder="">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control">
+                                <input type="password" class="input" placeholder="">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    I agree to the <a href="">terms and conditions</a>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                    <button class="button is-success mt-2">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      //Register modal toggle
+  const signupButton = document.querySelector('#signup');
+  const modalBg = document.querySelector('.modal-background');
+  const modal = document.querySelector('.modal');
+  
+  signupButton.addEventListener('click', () => {
+      modal.classList.add('is-active');
+  })
+  
+  modalBg.addEventListener('click', () => {
+      modal.classList.remove('is-active');
+  })
+  
+      //Tabs
+  const tabs = document.querySelectorAll('.tabs li');
+  const tabContentBoxes = document.querySelectorAll('#tab-content > div');
+  
+  tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+          tabs.forEach(item => item.classList.remove('is-active'))
+          tab.classList.add('is-active');
+      })
+  })
+  </script>
+
+  <!-- ---------------- Login Modal ---------------- -->
+
+<section class="section">
+  <div class="modal login-modal">
+      <div class="modal-background login-modal-background"></div>
+          <div class="modal-content has-background-white py-5 px-5">
+              <div class="has-text-centered">
+                  <form>
+                      <div class="field">
+                          <label class="label">Email</label>
+                          <div class="control">
+                              <input type="text" class="input" placeholder="">
+                          </div>
+                      </div>
+                      <div class="field">
+                          <label class="label">Password</label>
+                          <div class="control">
+                              <input type="password" class="input" placeholder="">
+                          </div>
+                      </div>
+                      <div class="field">
+                          <div class="control">
+                              <label class="checkbox">
+                                  <input type="checkbox">
+                                  I agree to the <a href="">terms and conditions</a>
+                              </label>
+                          </div>
+                      </div>
+                  </form>
+                  <button class="button is-success mt-2">Send</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<script>
+  //Login modal toggle
+const loginButton = document.querySelector('#login');
+const loginModalBg = document.querySelector('.login-modal-background');
+const loginModal = document.querySelector('.login-modal');
+
+loginButton.addEventListener('click', () => {
+  loginModal.classList.add('is-active');
+})
+
+loginModalBg.addEventListener('click', () => {
+  loginModal.classList.remove('is-active');
+})
+</script>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>あいべ</p>
+    </div>
+  </footer>
