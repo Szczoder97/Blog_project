@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Blog_project.Models.Post>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<section class="section">
+    <div class="container">
+        <div class="tabs">
+            <ul>
+                <li class="is-active" data-target="post-details"><a>option1</a></li>
+                <li><a>option2</a></li>
+                <li><a>option3</a></li>
+                <li><a>option4</a></li>
+            </ul>
+        </div>
+        <div class="columns">
+            @foreach (var item in Model)
+            {
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image3">
+                                <img src="Views\Post\assets\placeholder.jpg" alt="Vroom" class="px-6">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">@Html.DisplayFor(modelItem => item.userId)</p>
+                                    <p class="subtitle is-6">@Html.DisplayFor(modelItem => item.title)</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                @Html.DisplayFor(modelItem => item.text)
+                                <br>
+                                <time datetime="@Html.DisplayNameFor(model => item.publishedDate)">@Html.DisplayNameFor(model => item.publishedDate)</time>
+                                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+@*
+<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.userId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.text)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.publishedDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.userId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.text)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+
+@*Tabs*@
+
+<script>
+const tabs = document.querySelectorAll('.tabs li');
+const tabContentBoxes = document.querySelectorAll('#tab-content > div');
+
+tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(item => item.classList.remove('is-active'))
+        tab.classList.add('is-active');
+    })
+})
+</script>
