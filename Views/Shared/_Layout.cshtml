@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar has-shadow is-white" asp-area="" asp-controller="Home" asp-action="Index">
         <div class="navbar-brand">
-            <a class="navbar-item" asp-controller="Home">
+            <a class="navbar-item" asp-controller="Home" asp-action="">
                 <img src="~/assets/logo_v1.png" alt="Logo strony" style="max-height: 76px" class="py-2 px-2">
             </a>
             <a class="navbar-burger" id="burger">
@@ -22,10 +22,10 @@
         <div class="navbar-menu" id="nav-links">
             <div class="navbar-start">
                 <div class="navbar-item">
-                    <a class="navbar-item" asp-controller="Home">Home</a>
+                    <a class="navbar-item" asp-controller="Home" asp-action="">Home</a>
                 </div>
                 <div class="navbar-item">
-                    <a class="navbar-item" asp-controller="Post">Posts</a>
+                    <a class="navbar-item" asp-controller="Post" asp-action="">Posts</a>
                 </div>
                 <div class="navbar-item">
                     <div class="field has-addons">
@@ -46,35 +46,18 @@
         </div>
     </nav>
 
-    @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-            <partial name="_LoginPartial" />
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                </li>
-            </ul>
-        </div>
-        </div>>*@
-
-
     <div class="container">
         <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - Blog_project - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            &copy; 2020 - あいべ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
