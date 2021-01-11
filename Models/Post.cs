@@ -14,8 +14,8 @@ namespace Blog_project.Models
         public string title { get; set;}
         public string text { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0: dd-MMM-yyyy", ApplyFormatInEditMode =true)]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString ="{0: dd-MMM-yyyy}", ApplyFormatInEditMode =true)]
         [DisplayName("Published on:")]
         public DateTime publishedDate { get; set; }
     }
