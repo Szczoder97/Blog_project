@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Blog_project.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Blog_project.Controllers
 {
@@ -48,6 +49,7 @@ namespace Blog_project.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Post post)
         {
+            
             if (ModelState.IsValid)
             {
                 db.Posts.Add(post);
@@ -80,6 +82,30 @@ namespace Blog_project.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(post);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Post post = db.Posts.Find(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return View(post);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Post post = db.Posts.Find(id);
+            db.Posts.Remove(post);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

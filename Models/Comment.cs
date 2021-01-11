@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Blog_project.Models
 {
-    public class Image
+    public class Comment
     {
     }
 }

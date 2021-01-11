@@ -29,6 +29,12 @@ namespace Blog_project.Migrations
                     b.Property<DateTime>("publishedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("subtitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("tag")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("text")
                         .HasColumnType("nvarchar(max)");
 
