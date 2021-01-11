@@ -12,5 +12,7 @@ namespace Blog_project.Data
             : base(options)
         {
         }
+
+        public object Post { get; set; }
     }
 }
