@@ -52,6 +52,7 @@ namespace Blog_project.Controllers
             
             if (ModelState.IsValid)
             {
+                post.userId = User.Identity.Name;
                 db.Posts.Add(post);
                 await db.SaveChangesAsync();
                 TempData["Message"] = "Post added";

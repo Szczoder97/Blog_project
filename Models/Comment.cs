@@ -7,5 +7,12 @@ namespace Blog_project.Models
 {
     public class Comment
     {
+        public int id { get; set; }
+
+        public string userId { get; set; }
+
+        public int postId { get; set; }
+
+        public string text { get; set; }
     }
 }

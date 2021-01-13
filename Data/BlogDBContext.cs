@@ -23,7 +23,7 @@ namespace Blog_project.Models
             modelBuilder.Entity<Post>().HasKey(c => c.id);
             modelBuilder.Entity<Post>().ToTable("Posts");
             modelBuilder.Entity<Comment>().HasKey(c => c.id);
-            modelBuilder.Entity<Comment>().ToTable("Comments")
+            modelBuilder.Entity<Comment>().ToTable("Comments");
         }
 
     
