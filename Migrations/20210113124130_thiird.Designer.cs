@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blog_project.Migrations
 {
     [DbContext(typeof(BlogDBContext))]
-    [Migration("20210106120049_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210113124130_thiird")]
+    partial class thiird
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,6 +21,27 @@ namespace Blog_project.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
+            modelBuilder.Entity("Blog_project.Models.Comment", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("postId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("userId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("Blog_project.Models.Post", b =>
                 {
                     b.Property<int>("id")
@@ -28,8 +49,17 @@ namespace Blog_project.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<byte[]>("image")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<DateTime>("publishedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("subtitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("tag")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("text")
                         .HasColumnType("nvarchar(max)");
@@ -37,8 +67,8 @@ namespace Blog_project.Migrations
                     b.Property<string>("title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("userId")
-                        .HasColumnType("int");
+                    b.Property<string>("userId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
