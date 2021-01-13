@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blog_project.Migrations
 {
     [DbContext(typeof(BlogDBContext))]
-    [Migration("20210113124130_thiird")]
-    partial class thiird
+    [Migration("20210113160247_thiiiird")]
+    partial class thiiiird
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,8 @@ namespace Blog_project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
+
+                    b.HasIndex("postId");
 
                     b.ToTable("Comments");
                 });
@@ -73,6 +75,20 @@ namespace Blog_project.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("Blog_project.Models.Comment", b =>
+                {
+                    b.HasOne("Blog_project.Models.Post", null)
+                        .WithMany("Comments")
+                        .HasForeignKey("postId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Blog_project.Models.Post", b =>
+                {
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

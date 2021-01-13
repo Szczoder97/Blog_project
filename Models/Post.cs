@@ -23,5 +23,7 @@ namespace Blog_project.Models
         public  string tag { get; set; }
 
         public byte[] image { get; set; }
+
+        public virtual ICollection<Comment>Comments { get; set; }
     }
 }

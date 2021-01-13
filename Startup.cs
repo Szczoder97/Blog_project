@@ -68,6 +68,8 @@ namespace Blog_project
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+
+              
             });
         }
     }
