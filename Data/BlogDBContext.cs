@@ -21,5 +21,8 @@ namespace Blog_project.Models
             modelBuilder.Entity<Post>().HasKey(c => c.id);
             modelBuilder.Entity<Post>().ToTable("Posts");
         }
+
+
+        public DbSet<Blog_project.Models.Image> Image { get; set; }
     }
 }
