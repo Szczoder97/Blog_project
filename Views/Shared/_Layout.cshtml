@@ -30,20 +30,11 @@
                 <div class="navbar-item">
                     <a class="navbar-item" asp-controller="Images" asp-action="">Images</a>
                 </div>
-                <div class="navbar-item">
-                    <div class="field has-addons">
-                        <p class="control">
-                            <input class="input" type="text" placeholder="Find a post">
-                        </p>
-                        <p class="control">
-                            <button class="button">
-                                Search
-                            </button>
-                        </p>
-                    </div>
-                </div>
             </div>
             <div class="navbar-end">
+                <div class="navbar-item">
+                    <a asp-controller="Post" asp-action="Create" class="button is-primary is-rounded">New Post</a>
+                </div>
                 <partial name="_LoginPartial" />
             </div>
         </div>
