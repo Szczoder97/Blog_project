@@ -16,7 +16,7 @@ namespace Blog_project.Models
 
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        
+        public DbSet<Image> Image { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,8 +25,5 @@ namespace Blog_project.Models
             modelBuilder.Entity<Comment>().HasKey(c => c.id);
             modelBuilder.Entity<Comment>().ToTable("Comments");
         }
-
-    
-
     }
 }

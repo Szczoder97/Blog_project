@@ -7815,25 +7815,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\kiedr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\source\\repos\\Blog_project\\Blog_project.csproj",
+      "projectUniqueName": "C:\\Users\\kiedr\\source\\repos\\Blog_project\\Blog_project.csproj",
       "projectName": "Blog_project",
-      "projectPath": "C:\\Users\\hp\\source\\repos\\Blog_project\\Blog_project.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\source\\repos\\Blog_project\\obj\\",
+      "projectPath": "C:\\Users\\kiedr\\source\\repos\\Blog_project\\Blog_project.csproj",
+      "packagesPath": "C:\\Users\\kiedr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kiedr\\source\\repos\\Blog_project\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\kiedr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

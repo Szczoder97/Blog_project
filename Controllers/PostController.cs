@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Blog_project.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+using Blog_project.Data;
 
 namespace Blog_project.Controllers
 {
@@ -14,11 +14,11 @@ namespace Blog_project.Controllers
     public class PostController : Controller
     {
         BlogDBContext db;
-
         public PostController(BlogDBContext db)
         {
             this.db = db;
         }
+
 
         [AllowAnonymous]
         public IActionResult Index()
@@ -49,10 +49,8 @@ namespace Blog_project.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Post post)
         {
-            
             if (ModelState.IsValid)
             {
-                post.userId = User.Identity.Name;
                 db.Posts.Add(post);
                 await db.SaveChangesAsync();
                 TempData["Message"] = "Post added";
@@ -63,80 +61,84 @@ namespace Blog_project.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
-       
             var post = await db.Posts.SingleOrDefaultAsync(c => c.id == id);
-            if(post.userId == User.Identity.Name) {
-                if (post == null)
-                {
-                    return NotFound();
-                }
-                return View(post);
-            }
-            else
+            if(post == null)
             {
-                TempData["Message"] = "You have no permisson!";
-                return Redirect("/");
+                return NotFound();
             }
-            
+            return View(post);
         }
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Post post)
         {
-            if(post.userId == User.Identity.Name) {
-                if (ModelState.IsValid)
-                {
-                    db.Posts.Update(post);
-                    await db.SaveChangesAsync();
-                    TempData["Message"] = "Edited";
-                    return RedirectToAction(nameof(Index));
-                }
-                return View(post);
-            }
-            else
+            if (ModelState.IsValid)
             {
-                TempData["Message"] = "You have no permisson!";
-                return Redirect("/");
+                db.Posts.Update(post);
+                await db.SaveChangesAsync();
+                TempData["Message"] = "Edited";
+                return RedirectToAction(nameof(Index));
             }
-            
+            return View(post);
         }
 
-        public ActionResult Delete(int? id)
+
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            Post post = db.Posts.Find(id);
-            if(post.userId == User.Identity.Name) {
-                if (post == null)
-                {
-                    return NotFound();
-                }
-                return View(post);
-            }
-            else
+
+            var post = await db.Posts
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.id == id);
+            if (post == null)
             {
-                TempData["Message"] = "You have no permisson!";
-                return Redirect("/");
+                return NotFound();
             }
-           
+
+            return View(post);
         }
 
-        [HttpPost, ActionName("Delete")]
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        //{
+        //    var post = await db.Posts.FindAsync(id);
+        //    if (post == null)
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+
+        //    try
+        //    {
+        //        db.Posts.Remove(post);
+        //        await db.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch (DbUpdateException /* ex */)
+        //    {
+        //        //Log the error (uncomment ex variable name and write a log.)
+        //        return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
+        //    }
+        //}
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            Post post = db.Posts.Find(id);
-            if(post.userId == User.Identity.Name) {
-                db.Posts.Remove(post);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            else
+            try
             {
-                return Redirect("/");
+                Post studentToDelete = new Post() { id = id };
+                db.Entry(studentToDelete).State = EntityState.Deleted;
+                await db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.)
+                return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
             }
         }
     }

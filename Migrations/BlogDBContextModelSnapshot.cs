@@ -42,6 +42,21 @@ namespace Blog_project.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Blog_project.Models.Image", b =>
+                {
+                    b.Property<int>("ImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("ImageId");
+
+                    b.ToTable("Image");
+                });
+
             modelBuilder.Entity("Blog_project.Models.Post", b =>
                 {
                     b.Property<int>("id")
@@ -49,25 +64,19 @@ namespace Blog_project.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<byte[]>("image")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<DateTime>("publishedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("subtitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("tag")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("text")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("userId")
+                    b.Property<string>("userName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
