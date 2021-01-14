@@ -14,11 +14,12 @@ namespace Blog_project.Models
         [Key]
         public int ImageId { get; set; }
 
+        [DisplayName("Image path")]
         [Column(TypeName ="nvarchar(50)")]
         public string Title { get; set; }
 
         [NotMapped]
-        [DisplayName("Upload Image")]
+        [DisplayName("Upload image")]
         public IFormFile ImageFile { get; set; }
     }
 }

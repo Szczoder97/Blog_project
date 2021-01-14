@@ -1,33 +1,34 @@
 ﻿@model Blog_project.Models.Image
 
-@{
-    ViewData["Title"] = "Edit";
-}
-
-<h1>Edit</h1>
-
-<h4>Image</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<section class="section">
+    <div class="container">
+        <div class="column is-3"></div>
+        <div class="column is-7">
+            <div>
+                <h1 class="title">Edit image</h1>
+                <h2 class="subtitle">Exchange picture in database</h2>
+            </div>
+        </div><hr />
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="is-danger"></div>
             <input type="hidden" asp-for="ImageId" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+            <div class="form-group field">
+                <label asp-for="Title" class="control-label label"></label>
+                <input asp-for="Title" accept="image/*" class="input form-control" />
+                <span asp-validation-for="Title" class="text-danger tag is-white"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+
+            <nav class="level">
+                <div class="form-group level-left">
+                    <input type="submit" value="Edit" class="button is-warning" />
+                </div>
+                <div>
+                    <a asp-action="Index" class="button">Back to List</a>
+                </div>
+            </nav>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

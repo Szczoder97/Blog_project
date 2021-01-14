@@ -4,27 +4,30 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Comment</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.userId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.userId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.text)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.text)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<section class="section">
+    <div class="container pb-6 mb-6">
+        <div class="column is-3"></div>
+        <div class="column is-7 mb-6 pb-6">
+            <div class="container">
+                <div class="mb-3">
+                    <h1 class="title">Comment details</h1>
+                    <h2 class="subtitle">Do you want to edit this comment?</h2>
+                </div>
+                <dd class="image mb-3">
+                    @(Model.text)
+                </dd>
+                <form asp-action="Delete" asp-route-id="@Model.id">
+                    <nav class="level form-group">
+                        <div class="level-left">
+                            <input type="hidden" asp-for="id" />
+                            <a asp-action="Edit" asp-route-id="@Model.id" class="button is-warning">Edit</a> 
+                        </div>
+                        <div class="level-right">
+                            <a asp-action="Index" class="button level-right">Back to List</a>
+                        </div>
+                    </nav>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

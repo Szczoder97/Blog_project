@@ -4,32 +4,34 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ImageId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ImageId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ImageId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<section class="section">
+    <div class="container">
+        <div class="column is-3"></div>
+        <div class="column is-7">
+            <div>
+                <h1 class="title">Edit image</h1>
+                <h2 class="subtitle">Exchange picture in database</h2>
+            </div>
+        </div><hr />
+        <table class="table">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ImageId" class="button is-warning is-light is-rounded mr-2">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.ImageId" class="button is-link is-light is-rounded mr-2">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.ImageId" class="button is-danger is-light is-rounded">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="column is-2">
+            <a asp-action="Create" class="button is-primary is-rounded is-medium">Create New</a>
+        </div>
+    </div>
+</section>
