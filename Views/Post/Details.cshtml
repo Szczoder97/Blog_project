@@ -4,39 +4,34 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<section class="section">
+    <div class="container pb-6 mb-6">
+        <div class="columns">
+            <div class="column is-2"></div>
+            <div class="column is-8">
+                <div class="has-text-centered">
+                    <h1 class="title">@Html.DisplayFor(model => model.title)</h1>
+                </div><hr />
 
-<div>
-    <h4>Post</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.userName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.userName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.text)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.text)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayFor(model => model.publishedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.publishedDate)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+                <div class="container">
+                    <div class="pb-2">
+                        @Html.DisplayFor(model => model.text)
+                    </div>
+
+                    <div class="level">
+                        <div class="level-left">
+                            <p class="subtitle">@Html.DisplayFor(model => model.userName)</p>
+                        </div>
+                        <div class="level-right">
+                            <p class="subtitle">@Html.DisplayFor(model => model.publishedDate)</p>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <a asp-action="Index" class="button is-rounded level-right">Back to List</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
