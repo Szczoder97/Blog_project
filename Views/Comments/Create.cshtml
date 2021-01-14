@@ -4,34 +4,39 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<section class="section">
+    <div class="container">
+        <div class="column is-3"></div>
+        <div class="column is-7">
+            <div>
+                <h1 class="title">Create comment</h1>
+                <h2 class="subtitle">Add comment to comment table</h2>
+            </div>
+        </div><hr />
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="is-danger"></div>
+            <div class="form-group field">
+                <label asp-for="userId" class="control-label label"></label>
+                <input asp-for="userId" accept="image/*" class="input form-control" />
+                <span asp-validation-for="userId" class="text-danger tag is-white"></span>
+            </div>
+            <div class="form-group field">
+                <label asp-for="text" class="control-label label"></label>
+                <input asp-for="text" accept="image/*" class="input form-control" />
+                <span asp-validation-for="text" class="text-danger tag is-white"></span>
+            </div>
 
-<h4>Comment</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="userId" class="control-label"></label>
-                <input asp-for="userId" class="form-control" />
-                <span asp-validation-for="userId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="text" class="control-label"></label>
-                <input asp-for="text" class="form-control" />
-                <span asp-validation-for="text" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            <nav class="level">
+                <div class="form-group level-left">
+                    <input type="submit" value="Create" class="button is-primary" />
+                </div>
+                <div>
+                    <a asp-action="Index" class="button">Back to List</a>
+                </div>
+            </nav>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -13,6 +13,10 @@ namespace Blog_project.Controllers
     [Authorize]
     public class PostController : Controller
     {
+
+        [TempData]
+        public string postAdnotation { get; set; }
+
         BlogDBContext db;
         public PostController(BlogDBContext db)
         {
@@ -54,7 +58,9 @@ namespace Blog_project.Controllers
                 db.Posts.Add(post);
                 await db.SaveChangesAsync();
                 TempData["Message"] = "Post added";
+                postAdnotation = "New post created";
                 return RedirectToAction(nameof(Index));
+
             }
             return View(post);
         }
