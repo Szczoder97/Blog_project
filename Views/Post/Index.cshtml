@@ -20,11 +20,11 @@
             {
             <div class="column is-4">
                 <div class="card mb-3">
-                    <div class="card-image">
+                    @*<div class="card-image">
                         <figure class="image3">
-                            <img src="~/assets/placeholder.jpg" alt="Vroom" class="px-6">10
+                            <img src="~/assets/placeholder.jpg" alt="Vroom" class="px-6">
                         </figure>
-                    </div>
+                    </div>*@
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -50,45 +50,6 @@
     </div>
 </section>
 
-
-@*
-<table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.userId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.text)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.publishedDate)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.userId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.text)
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>*@
-
-@*Tabs*@
 
 <script>
 const tabs = document.querySelectorAll('.tabs li');
