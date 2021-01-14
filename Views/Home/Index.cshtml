@@ -1,8 +1,43 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Blog_project.Models.Post>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@{ ViewData["Title"] = "Home Page"; }
+
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-4">
+                <h1 class="is-size-1 title">Blog AiB</h1>
+                <h2 class="is-size-2 subtitle">Log in to add posts</h2>
+                <p>
+                    Pierwszy raz termin „blog” został użyty w 1999 r. przez Petera Merholza[7], redaktora jednego z najwcześniejszych internetowych dzienników,
+                    znanego pod nazwą „Robot Wisdom”[8]. Od dwóch lat funkcjonowało już jednak określenie „weblog” autorstwa Jorna Bargera, oznaczające strony,
+                    na których umieszczane były jedynie linki do innych stron z danej dziedziny,
+                    ewentualnie komentarze/wpisy ułożone w porządku odwrotnym do chronologicznego
+                </p>
+            </div>
+            <div class="column is-5">
+
+            </div>
+            <div class="column is-3">
+                @*@foreach (var item in Model)
+                {
+                    <div class="card mb-3">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4 ml-3">@Html.DisplayFor(modelItem => item.userName)</p>
+                                    <p class="subtitle is-6 ml-3">@Html.DisplayFor(modelItem => item.title)</p>
+                                </div>
+                            </div>
+                            <div class="content has-text-centered">
+                                <a asp-controller="Post" asp-action="Edit" asp-route-id="@item.id" class="button is-warning is-rounded is-light mr-3">Edit</a>
+                                <a asp-controller="Post" asp-action="Details" asp-route-id="@item.id" class="button is-info is-rounded is-light mr-3">Details</a>
+                                <a asp-controller="Post" asp-action="Delete" asp-route-id="@item.id" class="button is-danger is-rounded is-light">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                }*@
+            </div>
+        </div>
+    </div>
+</section>
